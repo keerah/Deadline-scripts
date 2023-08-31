@@ -28,4 +28,5 @@ Use the Tools -> Configure Events menu (in Superuser mode) to change the plugin 
 - Code optimization
 - Sending job reports with the notifications
 - Multiple email recipients
+- Per event On/Off toggle
 - Selectable emails for each event (?)
