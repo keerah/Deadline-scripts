@@ -25,6 +25,7 @@ def SendMail(mail_msg, smtp_data):
     message["Subject"] = mail_msg["subject"]
     message["From"] = mail_msg["sender"]
     message["To"] = mail_msg["receiver"]
+    
     message.attach(MIMEText(mail_msg["body"], mail_msg["type"]))
     
     try: 
@@ -75,7 +76,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgSubmitted", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgSubmittedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify: Notifying of job {jobname} submission".format(jobname = "\"" + job.JobName + "\""))
@@ -93,7 +95,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgStarted", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgStartedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify:Notifying of job {jobname} start".format(jobname = "\"" + job.JobName + "\""))
@@ -111,7 +114,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgCompleted", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgCompletedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify:Notifying of job {jobname} completion".format(jobname = "\"" + job.JobName + "\""))
@@ -129,7 +133,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgFailed", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgFailedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify: Notifying of job {jobname} failure".format(jobname = "\"" + job.JobName + "\""))
@@ -147,7 +152,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgResumed", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgResumedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify: Notifying of job {jobname} resume".format(jobname = "\"" + job.JobName + "\""))
@@ -165,7 +171,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgSuspended", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgSuspendedSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify: Notifying of job {jobname} suspense".format(jobname = "\"" + job.JobName + "\""))
@@ -183,7 +190,8 @@ class CustomNotify(DeadlineEventListener):
         msg["sender"] = self.GetConfigEntryWithDefault("SenderEmail", "")
         msg["receiver"] = self.GetConfigEntryWithDefault("ReceiverEmail", "")
         msg["body"] = self.GetConfigEntryWithDefault("MsgError", "").format(jobname = "\"" + job.JobName + "\"") 
-        msg["body"] = msg["body"].replace(";", "<br>")
+        msg["eol"] = "\n" if msg["type"] == "plain" else "<br>"
+        msg["body"] = msg["body"].replace(";", msg["eol"])
         msg["subject"] = self.GetConfigEntryWithDefault("MsgErrorSubj", "").format(jobname = "\"" + job.JobName + "\"") 
                 
         self.LogInfo("CustomNotify: Notifying of job {jobname} error".format(jobname = "\"" + job.JobName + "\""))
