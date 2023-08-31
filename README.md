@@ -1,2 +1,6 @@
-# Deadline-scripts
- Scripts for Thinkbox Deadline
+# Deadline scripts
+ Some custom tools for Thinkbox Deadline
+ 
+# Content
+
+ Custom notification event plugin
