@@ -7,7 +7,7 @@
  - Job started
  - Job resumed
  - Job suspended
- - Job resumed
+ - Job finished
  - Job error
  - Job failed
  
