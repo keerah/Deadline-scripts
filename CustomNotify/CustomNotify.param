@@ -1,0 +1,222 @@
+[State]
+Type=Enum
+Items=Global Enabled;Disabled
+Category=Options
+CategoryOrder=0
+Index=0
+Label=State
+Default=Disabled
+Description=How this event plugin should respond to events. If Global, all jobs and Workers will trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[SenderEmail]
+Type=string
+Category=Email
+CategoryOrder=1
+Index=1
+Label=Sender email
+Default=example@gmail.com
+Description=Email From address
+
+[ReceiverEmail]
+Type=string
+Category=Email
+CategoryOrder=1
+Index=2
+Label=Reciever email
+Default=example@gmail.com
+Description=Email To address
+
+# SMTP
+
+[SmtpHostname]
+Type=string
+Category=SMTP settings
+CategoryOrder=2
+Index=0
+Label=Server hostname
+Default=smtp.gmail.com
+Description=SMTP server name or ip
+
+[SmtpPort]
+Type=integer
+Category=SMTP settings
+CategoryOrder=2
+Index=1
+Label=Server port
+Default=587
+Minimum=0
+Maximum=65535
+Description=SMTP server port number. 587 for STARTTLS (google mail compatible).
+
+[SmtpAccount]
+Type=string
+Category=SMTP settings
+CategoryOrder=2
+Index=2
+Label=Account name
+Default=example@gmail.com
+Description=SMTP server account name. Usually it's the sender email.
+
+[SmtpToken]
+Type=password
+Category=SMTP settings
+CategoryOrder=2
+Index=3
+Label=Password
+Default=
+Description=SMTP server account password or token.
+
+# Message type
+
+[MsgType]
+Type=Enum
+Items=html;text
+Category=Message type
+CategoryOrder=3
+Index=0
+Default=text
+Label=Content type
+Description=Send message as plain text or html
+
+# Submitted
+
+[MsgSubmittedSubj]
+Type=string
+Category=Job submitted
+CategoryOrder=4
+Index=0
+Label=Subject
+Default=Deadline reports: Job submitted
+Description=Message subject for the Job submitted event. Use {jobname} for the render job name.
+
+[MsgSubmitted]
+Type=MultiLineString
+Category=Job submitted
+CategoryOrder=4
+Index=1
+Label=Message
+Default=Deadline reports: New render job {jobname} submitted
+Description=Messaage content for the Job submitted event. Use {jobname} for the render job name.
+
+# Started
+
+[MsgStartedSubj]
+Type=string
+Category=Job started
+CategoryOrder=5
+Index=0
+Label=Subject
+Default=Deadline reports: Job started
+Description=Message subject for the Job submitted event. Use {jobname} for the render job name.
+
+[MsgStarted]
+Type=MultiLineString
+Category=Job started
+CategoryOrder=5
+Index=1
+Label=Message
+Default=Deadline reports:<br>The render job {jobname} started
+Description=Messaage content for the Job started event. Use {jobname} for the render job name.
+
+# Resumed
+
+[MsgResumedSubj]
+Type=string
+Category=Job resumed
+CategoryOrder=6
+Index=0
+Label=Subject
+Default=Deadline reports: Job resumed
+Description=Message subject for the Job resumed event. Use {jobname} for the render job name.
+
+[MsgResumed]
+Type=MultiLineString
+Category=Job resumed
+CategoryOrder=6
+Index=1
+Label=Message
+Default=Deadline reports:<br>The render job {jobname} resumed
+Description=Messaage content for the Job resumed event. Use {jobname} for the render job name.
+
+# Suspended
+
+[MsgSuspendedSubj]
+Type=string
+Category=Job suspended
+CategoryOrder=7
+Index=0
+Label=Subject
+Default=Deadline reports: Job suspended
+Description=Message subject for the Job suspended event. Use {jobname} for the render job name.
+
+[MsgSuspended]
+Type=MultiLineString
+Category=Job suspended
+CategoryOrder=7
+Index=1
+Label=Message
+Default=Deadline reports:<br>The render job {jobname} suspended
+Description=Messaage content for the Job suspended event. Use {jobname} for the render job name.
+
+
+# Completed
+
+[MsgCompletedSubj]
+Type=string
+Category=Job completed
+CategoryOrder=8
+Index=0
+Label=Subject
+Default=Deadline reports: Job completed
+Description=Message subject for the Job submitted event. Use {jobname} for the render job name.
+
+[MsgCompleted]
+Type=MultiLineString
+Category=Job completed
+CategoryOrder=8
+Index=1
+Label=Message
+Default=<html><body><p>Deadline reports:<br>The render job {jobname} completed</p></body>
+Description=Messaage content for the Job completed event. Use {jobname} for the render job name.
+
+
+# Error
+
+[MsgErrordSubj]
+Type=string
+Category=Job error
+CategoryOrder=9
+Index=0
+Label=Subject
+Default=Deadline reports: Job error
+Description=Message subject for the Job error event. Use {jobname} for the render job name.
+
+[MsgError]
+Type=MultiLineString
+Category=Job error
+CategoryOrder=9
+Index=1
+Label=Message
+Default=<html><body><p>Deadline reports:<br>The render job {jobname} has error</p></body>
+Description=Messaage content for the Job error event. Use {jobname} for the render job name.
+
+
+# Failed
+
+[MsgFailedSubj]
+Type=string
+Category=Job failed
+CategoryOrder=10
+Index=0
+Label=Subject
+Default=Deadline reports: Job failed
+Description=Message subject for the Job failed event. Use {jobname} for the render job name.
+
+[MsgFailed]
+Type=MultiLineString
+Category=Job failed
+CategoryOrder=10
+Index=1
+Label=Message
+Default=Deadline reports:<br>The render job {jobname} failed
+Description=Messaage content for the Job failed event. Use {jobname} for the render job name.
