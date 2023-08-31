@@ -15,6 +15,8 @@
  - Job failed
  
  For each of those events you can specify a custom message, either plain text or html.
+ Email service support is quite narrow by now. Tested with Google mail and supports STARTTLS.
+ I personally use it with the same email address for sender and reciever, quite simple.
  
 ## Installation
  
