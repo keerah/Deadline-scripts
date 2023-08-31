@@ -14,18 +14,18 @@
  - Job error
  - Job failed
  
- For each of those events you can specify a custom message, either plain text or html.
- Email service support is quite narrow by now. Tested with Google mail and supports STARTTLS.
- I personally use it with the same email address for sender and reciever, quite simple.
+ For each of those events you can specify a custom message, either plain text or html.<br>
+ SMTP support is quite narrow by now, tested with Google mail, supports STARTTLS.<br>
+ I personally use it with the same email address for sender and reciever, quite simple.<br>
  
 ## Installation
  
 Download the folder and place it into your Deadline repository's subfolder `\DeadlineRepository10\custom\events`.<br>
-Use the Tools -> Configure Events menu in Superuser mode to change the plugin settings.
+Use the Tools -> Configure Events menu (in Superuser mode) to change the plugin settings.
 
 ## Roadmap
 
 - Code optimization
-- Sending reports with the notifications
+- Sending job reports with the notifications
 - Multiple email recipients
-- Selectable emails for each event
+- Selectable emails for each event (?)
