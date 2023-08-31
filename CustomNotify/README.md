@@ -16,7 +16,7 @@
 ## Installation
  
 Download the folder and place it into your Deadline repository's subfolder `\DeadlineRepository10\custom\events`.<br>
-Use the Tools menu in superuser mode to change the settings.
+Use the Tools -> Configure Events menu in superuser mode to change the settings.
 
 ## Roadmap
 
