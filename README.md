@@ -3,4 +3,4 @@
  
 # Content
 
- Custom notification event plugin
+ [CustomNotify - email notifications event plugin](https://github.com/keerah/Deadline-scripts/tree/main/CustomNotify)
