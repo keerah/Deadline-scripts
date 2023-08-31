@@ -82,7 +82,7 @@ Category=Message type
 CategoryOrder=3
 Index=0
 Required=True
-Default=text
+Default=plain
 Label=Content type
 Description=Send message as plain text or html
 
